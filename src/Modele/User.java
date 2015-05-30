@@ -1,7 +1,6 @@
 package Modele;
 
 import java.io.IOException;
-import org.json.simple.JSONObject;
 
 /**
  *
@@ -13,8 +12,6 @@ public class User {
     //Données membres de l'utilisateur
     private String nom, prenom, numeroRue, nomRue, codePostal, province, pays,
             password;
-    //Objet JSON pour la database
-    private JSONObject obj;
 
     //Constructeur
     public User(String nom, String prenom, String numeroRue, String nomRue, String codePostal,
@@ -28,7 +25,7 @@ public class User {
         this.setPays(pays);
         this.setPassword(password);
     }
-    
+
     //Setter
     public void setNom(String unNom) {
         this.nom = unNom;
@@ -93,27 +90,5 @@ public class User {
 
     public String getPassword() {
         return this.password;
-    }
-
-    //Write les info du user avec JSON
-    public JSONObject getUserInfo() throws IOException {
-        obj = new JSONObject();
-
-        obj.put("nom", getNom());
-        obj.put("prenom", getPrenom());
-        obj.put("numeroRue", getNumeroRue());
-        obj.put("nomRue", getNomRue());
-        obj.put("codePostal", getCodePostal());
-        obj.put("province", getProvince());
-        obj.put("pays", getPays());
-        obj.put("password", getPassword());
-        
-        return obj;
-    }
-    public static void main(String[] args) throws IOException {
-        User user = new User("Poulette","Marc-Andre","4512","Marquette","H2G 2Y9",
-        "Quebec", "Canada", "12345");
-        UserData ud = new UserData(user);
-        System.out.println(ud.getListeUser());
     }
 }
