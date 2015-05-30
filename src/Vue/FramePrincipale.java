@@ -14,10 +14,18 @@ import javax.swing.*;
  */
 public class FramePrincipale extends JFrame {
     
-    int largeurEcran = Toolkit.getDefaultToolkit().getScreenSize().width, 
+    private int largeurEcran = Toolkit.getDefaultToolkit().getScreenSize().width, 
             hauteurEcran = Toolkit.getDefaultToolkit().getScreenSize().height;
+    private Menu menu = null;
     
+    //Constructeur des éléments visuels
     public FramePrincipale(){
+        initFrame();
+        initMenu();
+    }
+    
+    //Info de la JFrame
+    public void initFrame(){
         setTitle("Gestionnaire de facture");
         setSize(largeurEcran, hauteurEcran);
         setLocationRelativeTo(null);
@@ -26,5 +34,11 @@ public class FramePrincipale extends JFrame {
         //Icon made by Freepik from www.flaticon.com 
         Image icon = getToolkit().getImage("data\\image\\icon.png");
         this.setIconImage(icon);
+    }
+    
+    //Info du menu
+    public void initMenu(){
+        this.menu = new Menu(this);
+        setJMenuBar(menu);
     }
 }

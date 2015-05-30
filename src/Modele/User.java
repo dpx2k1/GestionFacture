@@ -1,8 +1,6 @@
 package Modele;
 
 import java.io.IOException;
-import java.io.StringWriter;
-import java.util.*;
 import org.json.simple.JSONObject;
 
 /**
@@ -15,29 +13,22 @@ public class User {
     //Données membres de l'utilisateur
     private String nom, prenom, numeroRue, nomRue, codePostal, province, pays,
             password;
-
-    private ArrayList informationUser;
     //Objet JSON pour la database
     private JSONObject obj;
 
     //Constructeur
-    public User() throws IOException {
-        init();
-        exportUser();
+    public User(String nom, String prenom, String numeroRue, String nomRue, String codePostal,
+            String province, String pays, String password) throws IOException {
+        this.setNom(nom);
+        this.setPrenom(prenom);
+        this.setNumeroRue(numeroRue);
+        this.setNomRue(nomRue);
+        this.setCodePostal(codePostal);
+        this.setProvince(province);
+        this.setPays(pays);
+        this.setPassword(password);
     }
-
-    //Initialisation des données membres
-    public void init() {
-        setNom(nom);
-        setPrenom(prenom);
-        setNumeroRue(numeroRue);
-        setNomRue(nomRue);
-        setCodePostal(codePostal);
-        setProvince(province);
-        setPays(pays);
-        setPassword(password);
-    }
-
+    
     //Setter
     public void setNom(String unNom) {
         this.nom = unNom;
@@ -104,21 +95,8 @@ public class User {
         return this.password;
     }
 
-    //Ajoute les informations dans une ArrayList
-    public ArrayList getListeInfo() {
-        informationUser = new ArrayList<>();
-        informationUser.add(getNom());
-        informationUser.add(getPrenom());
-        informationUser.add(getNumeroRue());
-        informationUser.add(getNomRue());
-        informationUser.add(getCodePostal());
-        informationUser.add(getProvince());
-        informationUser.add(getPays());
-        return informationUser;
-    }
-
     //Write les info du user avec JSON
-    public void exportUser() throws IOException {
+    public JSONObject getUserInfo() throws IOException {
         obj = new JSONObject();
 
         obj.put("nom", getNom());
@@ -129,9 +107,13 @@ public class User {
         obj.put("province", getProvince());
         obj.put("pays", getPays());
         obj.put("password", getPassword());
-
-        //Write l'objet JSON
-        StringWriter out = new StringWriter();
-        obj.writeJSONString(out);
+        
+        return obj;
+    }
+    public static void main(String[] args) throws IOException {
+        User user = new User("Poulette","Marc-Andre","4512","Marquette","H2G 2Y9",
+        "Quebec", "Canada", "12345");
+        UserData ud = new UserData(user);
+        System.out.println(ud.getListeUser());
     }
 }
