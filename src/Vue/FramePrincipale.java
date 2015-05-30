@@ -18,7 +18,7 @@ public class FramePrincipale extends JFrame {
             hauteurEcran = Toolkit.getDefaultToolkit().getScreenSize().height;
     
     public FramePrincipale(){
-        setTitle("Gestionnaire de facture");
+        setTitle("Gestionnaire de fa7cture");
         setSize(largeurEcran, hauteurEcran);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
