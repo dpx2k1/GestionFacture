@@ -7,33 +7,28 @@ import java.io.IOException;
  * @author Guillaume
  */
 //Information sur l'utilisateur
-public class User {
+public class Compagnie {
 
     //Données membres de l'utilisateur
-    private String nom, prenom, numeroRue, nomRue, codePostal, province, pays,
-            password, telephone;
+    private String nomCompagnie, numeroRue, nomRue, codePostal, province, pays,
+            description, telephone;
 
     //Constructeur
-    public User(String nom, String prenom, String numeroRue, String nomRue, String codePostal,
-            String province, String pays, String password, String telephone) throws IOException {
-        this.setNom(nom);
-        this.setPrenom(prenom);
+    public Compagnie(String nomCompagnie, String numeroRue, String nomRue, String codePostal,
+            String province, String pays, String telephone, String description) throws IOException {
+        this.setNomCompagnie(nomCompagnie);
         this.setNumeroRue(numeroRue);
         this.setNomRue(nomRue);
         this.setCodePostal(codePostal);
         this.setProvince(province);
         this.setPays(pays);
-        this.setPassword(password);
         this.setTelephone(telephone);
+        this.setDescription(description);
     }
 
     //Setter
-    public void setNom(String unNom) {
-        this.nom = unNom;
-    }
-
-    public void setPrenom(String unPrenom) {
-        this.prenom = unPrenom;
+    public void setNomCompagnie(String unNomCompagnie) {
+        this.nomCompagnie = unNomCompagnie;
     }
 
     public void setNumeroRue(String unNumeroRue) {
@@ -56,21 +51,17 @@ public class User {
         this.pays = unPays;
     }
 
-    public void setPassword(String newPassword) {
-        this.password = newPassword;
-    }
-
     public void setTelephone(String unTelephone) {
         this.telephone = unTelephone;
     }
 
-    //Getter
-    public String getNom() {
-        return this.nom;
+    public void setDescription(String uneDescription) {
+        this.description = uneDescription;
     }
 
-    public String getPrenom() {
-        return this.prenom;
+    //Getter
+    public String getNomCompagnie() {
+        return this.nomCompagnie;
     }
 
     public String getNumeroRue() {
@@ -93,11 +84,11 @@ public class User {
         return this.pays;
     }
 
-    public String getPassword() {
-        return this.password;
-    }
-
     public String getTelephone() {
         return this.telephone;
+    }
+
+    public String getDescription() {
+        return this.description;
     }
 }
