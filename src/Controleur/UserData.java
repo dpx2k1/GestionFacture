@@ -41,7 +41,7 @@ public class UserData {
 
     public void initUser() {
         try {
-            file = new FileWriter("file1.json");
+            file = new FileWriter("data\\file\\infoUser.json");
             file.write(obj.toJSONString());
             file.flush();
             file.close();
