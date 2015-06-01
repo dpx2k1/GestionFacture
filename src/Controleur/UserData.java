@@ -37,6 +37,7 @@ public class UserData {
         obj.put("province", user.getProvince());
         obj.put("pays", user.getPays());
         obj.put("password", user.getPassword());
+        obj.put("telephone", user.getTelephone());
     }
 
     public void initUser() {
@@ -50,9 +51,10 @@ public class UserData {
         }
     }
 
+    //TEST
     public static void main(String[] args) throws IOException {
         User user = new User("Poulette", "Marc-Andre", "4512", "Marquette", "H2G 2Y9",
-                "Quebec", "Canada", "12345");
+                "Quebec", "Canada", "12345", null);
         UserData ud = new UserData(user);
         ud.initUser();
     }
