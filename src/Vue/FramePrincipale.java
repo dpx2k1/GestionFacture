@@ -5,17 +5,15 @@
  */
 package Vue;
 
+import Controleur.Informateur;
 import java.awt.*;
 import javax.swing.*;
-
 /**
  *
  * @author Guillaume
  */
 public class FramePrincipale extends JFrame {
     
-    private int largeurEcran = Toolkit.getDefaultToolkit().getScreenSize().width, 
-            hauteurEcran = Toolkit.getDefaultToolkit().getScreenSize().height;
     private Menu menu = null;
     
     //Constructeur des éléments visuels
@@ -27,7 +25,7 @@ public class FramePrincipale extends JFrame {
     //Info de la JFrame
     public void initFrame(){
         setTitle("Gestionnaire de facture");
-        setSize(largeurEcran, hauteurEcran);
+        setSize(Informateur.largeurEcran, Informateur.hauteurEcran);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         

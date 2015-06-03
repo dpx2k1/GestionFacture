@@ -5,13 +5,15 @@
  */
 package Vue;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 /**
  *
  * @author Guillaume
  */
-public class Menu extends JMenuBar {
+public class Menu extends JMenuBar implements ActionListener {
 
     private JFrame uneFrame;
     private JMenu menuCompte, menuContrats, menuStatistiques, menuFacture,
@@ -29,6 +31,7 @@ public class Menu extends JMenuBar {
         initMenuCompagnie();
         initMenuAPropos();
         initMenuDeco();
+        actionPerformed(null);
     }
 
     //Menu de connection / création d'utilisateur
@@ -70,30 +73,43 @@ public class Menu extends JMenuBar {
         mItemModifierFacture = new JMenuItem("Modifier");
         menuFacture.add(mItemModifierFacture);
     }
-    
+
     //Menu Compagnie
-    public void initMenuCompagnie(){
+    public void initMenuCompagnie() {
         menuCompagnie = new JMenu("Bottin");
         this.add(menuCompagnie);
     }
-    
+
     //Menu À propos
-    public void initMenuAPropos(){
+    public void initMenuAPropos() {
         menuAPropos = new JMenu("À propos");
         this.add(menuAPropos);
-        
+
         //Sous menu JMenuItem
         mItemCredits = new JMenuItem("Crédits");
         menuAPropos.add(mItemCredits);
         menuAPropos.addSeparator();
-        
+
         mItemAide = new JMenuItem("Aide");
         menuAPropos.add(mItemAide);
     }
-    
+
     //Menu Déconnection
     public void initMenuDeco() {
         menuDeco = new JMenu("Déconnection");
         this.add(menuDeco);
+    }
+
+    //Ajout des ecouteurs
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        //écouteur pour l'inscription d'un nouvel utilisateur
+        mItemNouveauCompte.addActionListener((ActionEvent e1) -> {
+            if (e1.getSource() == mItemNouveauCompte) {
+                uneFrame.getContentPane().removeAll();
+                uneFrame.add(new PanelInscription());
+                revalidate();
+            }
+        });
     }
 }

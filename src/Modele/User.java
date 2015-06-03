@@ -11,11 +11,12 @@ public class User {
 
     //Données membres de l'utilisateur
     private String nom, prenom, numeroRue, nomRue, codePostal, province, pays,
-            password, telephone;
+            password, telephone, nomCompagnie, licence;
 
     //Constructeur
-    public User(String nom, String prenom, String numeroRue, String nomRue, String codePostal,
-            String province, String pays, String password, String telephone) throws IOException {
+    public User(String nom, String prenom, String telephone, String nomCompagnie,
+            String licence, String numeroRue, String nomRue, String codePostal,
+            String province, String pays, String password) throws IOException {
         this.setNom(nom);
         this.setPrenom(prenom);
         this.setNumeroRue(numeroRue);
@@ -25,6 +26,8 @@ public class User {
         this.setPays(pays);
         this.setPassword(password);
         this.setTelephone(telephone);
+        this.setNomCompagnie(nomCompagnie);
+        this.setLicence(licence);
     }
 
     //Setter
@@ -64,6 +67,14 @@ public class User {
         this.telephone = unTelephone;
     }
 
+    public void setNomCompagnie(String unNomCompagnie) {
+        this.nomCompagnie = unNomCompagnie;
+    }
+
+    public void setLicence(String uneLicence) {
+        this.licence = uneLicence;
+    }
+
     //Getter
     public String getNom() {
         return this.nom;
@@ -99,5 +110,13 @@ public class User {
 
     public String getTelephone() {
         return this.telephone;
+    }
+
+    public String getNomCompagnie() {
+        return this.nomCompagnie;
+    }
+
+    public String getLicence() {
+        return this.licence;
     }
 }
